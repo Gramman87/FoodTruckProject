@@ -5,9 +5,10 @@ public class FoodTruck {
 	private String foodTruckName;
 	private String foodType;
 	private int truckRating;
-	
-	public FoodTruck() { }
 
+	public FoodTruck() {
+	}
+	
 	public static int getFoodTruckId() {
 		return foodTruckId;
 	}
@@ -38,6 +39,11 @@ public class FoodTruck {
 
 	public void setTruckRating(int rating) {
 		truckRating = rating;
+	}
+
+	public String toString() {
+		return "FoodTruck [foodTruckName: " + foodTruckName + ", foodType: " + foodType + ", truckRating: "
+				+ truckRating + "]";
 	}
 
 }
