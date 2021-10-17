@@ -19,38 +19,34 @@ public class FoodTruckApp {
 
 			for (int i = 0; i < numTrucks; i++) {
 
-				FoodTruck truck = new FoodTruck();
-
 				System.out.print("Food truck name: ");
 				foodTruckName = sc.nextLine();
 				if (foodTruckName.equalsIgnoreCase("quit")) {
 					truckInput = false;
 					break;
 				}
-				truck.setFoodTruckName(foodTruckName);
-				truck.setFoodTruckId();
 
 				System.out.print("Food type: ");
-				truck.setFoodType(foodType = sc.nextLine());
+				foodType = sc.nextLine();
 
 				System.out.print("Rating (1 - 5): ");
-				truck.setTruckRating(truckRating = sc.nextInt());
+				truckRating = sc.nextInt();
 				sc.nextLine();
-				myTrucks.truckInput(truck);
-
+				myTrucks.truckInput(new FoodTruck(foodTruckName, foodType, truckRating));
 			}
 
 			boolean dataReview = true;
 
 			while (dataReview) {
+				AppController menu = new AppController();
 
-				myTrucks.finalMenu();
+				menu.printMenu();
 				int userInput = sc.nextInt();
 
 				switch (userInput) {
 				case 1:
 					System.out.println("My trucks include: ");
-					myTrucks.getTrucks();
+					myTrucks.printTrucks();
 					break;
 
 				case 2:
