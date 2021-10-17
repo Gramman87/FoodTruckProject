@@ -4,14 +4,9 @@ public class FoodTruck {
 	private static int foodTruckId = 0000;
 	private String foodTruckName;
 	private String foodType;
-	private int TruckRating;
+	private int truckRating;
 	
-	public FoodTruck(String foodTruckName, String foodType, int truckRating) {
-		this.foodTruckId++;
-		this.foodTruckName = foodTruckName;
-		this.foodType = foodType;
-		TruckRating = truckRating;
-	}
+	public FoodTruck() { }
 
 	public static int getFoodTruckId() {
 		return foodTruckId;
@@ -38,13 +33,11 @@ public class FoodTruck {
 	}
 
 	public int getTruckRating() {
-		return TruckRating;
+		return truckRating;
 	}
 
-	public void setTruckRating(int truckRating) {
-		TruckRating = truckRating;
+	public void setTruckRating(int rating) {
+		truckRating = rating;
 	}
-	
-	
 
 }
