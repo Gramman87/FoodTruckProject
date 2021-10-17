@@ -5,36 +5,30 @@ import java.util.Scanner;
 public class FoodTruckApp {
 
 	public static void main(String[] args) {
-		// Scanner, menu
 		Scanner sc = new Scanner(System.in);
-		boolean activeVoter = true;
-		int userInput = 0;
-
-		FoodTruck[] myTrucks = new FoodTruck[5];
-
-		Voter user = new Voter();
+		boolean truckInput = true;
+		int numTrucks = 5;
 
 		System.out.println("Welcome to the Food Truck Challenge!");
-		System.out.print("Please provide your name: ");
-		user.setName(sc.nextLine());
+		TrucksWrapper myTrucks = new TrucksWrapper(numTrucks);
 
-		while (activeVoter) {
+		while (truckInput) {
 			String foodTruckName = "";
 			String foodType = "";
 			int truckRating = 0;
 
-			for (int i = 0; i < myTrucks.length; i++) {
+			for (int i = 0; i < numTrucks; i++) {
 
 				FoodTruck truck = new FoodTruck();
-				myTrucks[i] = truck;
 
 				System.out.print("Food truck name: ");
 				foodTruckName = sc.nextLine();
 				if (foodTruckName.equalsIgnoreCase("quit")) {
-					activeVoter = false;
+					truckInput = false;
 					break;
 				}
 				truck.setFoodTruckName(foodTruckName);
+				truck.setFoodTruckId();
 
 				System.out.print("Food type: ");
 				truck.setFoodType(foodType = sc.nextLine());
@@ -42,42 +36,42 @@ public class FoodTruckApp {
 				System.out.print("Rating (1 - 5): ");
 				truck.setTruckRating(truckRating = sc.nextInt());
 				sc.nextLine();
+				myTrucks.truckInput(truck);
 
 			}
-			
-			boolean activeUser = true;
 
-			while (activeUser) {
-				
-				user.finalMenu();
-				userInput = sc.nextInt();
+			boolean dataReview = true;
 
+			while (dataReview) {
+
+				myTrucks.finalMenu();
+				int userInput = sc.nextInt();
 
 				switch (userInput) {
 				case 1:
 					System.out.println("My trucks include: ");
-					user.getTrucks(myTrucks);
+					myTrucks.getTrucks();
 					break;
 
 				case 2:
-					System.out.println("Your trucks averafe rating is: " + user.getAverage(myTrucks));
+					System.out.println("Your trucks averafe rating is: " + myTrucks.getAverage());
 					break;
 
 				case 3:
-					System.out.println("Your highest rated is: " + user.getHighest(myTrucks));
+					System.out.println("Your highest rated is: " + myTrucks.getHighest());
 					break;
 
 				case 4:
 					System.out.println("Thank you for voting in the Food Truck Challenge!");
 					System.out.println("Good bye.");
-					activeUser = false;
-					activeVoter = false;
+					dataReview = false;
+					truckInput = false;
 				}
 
 			}
 
 		}
-		
+
 		sc.close();
 
 	}

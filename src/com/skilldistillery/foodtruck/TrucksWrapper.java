@@ -1,17 +1,19 @@
 package com.skilldistillery.foodtruck;
 
-public class Voter {
-	private String name;
-
-	public Voter() {
-
+public class TrucksWrapper {
+	private FoodTruck [] trucks;
+	private int indexs;
+	
+	public TrucksWrapper(int numTrucks) {
+		this.trucks = new FoodTruck[numTrucks];
+		indexs = 0;
+	}
+	
+	public void truckInput(FoodTruck truck) {
+		
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public void getTrucks(FoodTruck[] trucks) {
+	public void getTrucks() {
 
 		for (int i = 0; i < trucks.length; i++) {
 			if (trucks[i] == null) {
@@ -24,12 +26,12 @@ public class Voter {
 
 	}
 
-	public double getAverage(FoodTruck[] trucks) {
+	public double getAverage() {
 		double avgRating = 0;
 
 		for (int i = 0; i < trucks.length; i++) {
 			if (trucks[i].equals(null)) {
-				continue;
+				break;
 			}
 			avgRating += trucks[i].getTruckRating();
 		}
@@ -38,7 +40,7 @@ public class Voter {
 		return avgRating;
 	}
 
-	public String getHighest(FoodTruck[] trucks) {
+	public String getHighest() {
 		String highest;
 		String highTruck = "";
 		int highRating = 0;
