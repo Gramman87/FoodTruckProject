@@ -7,6 +7,7 @@ public class FoodTruck {
 	private int truckRating;
 
 	public FoodTruck() {
+		this.foodTruckId ++;
 	}
 	
 	public static int getFoodTruckId() {
@@ -42,8 +43,8 @@ public class FoodTruck {
 	}
 
 	public String toString() {
-		return "FoodTruck [foodTruckName: " + foodTruckName + ", foodType: " + foodType + ", truckRating: "
-				+ truckRating + "]";
+		return "FoodTruck [Truck Name: " + foodTruckName + ", Food Type: " + foodType + ", Truck Rating: "
+				+ truckRating + ", Truck ID: " + foodTruckId + "]";
 	}
 
 }

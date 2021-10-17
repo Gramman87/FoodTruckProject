@@ -30,6 +30,10 @@ public class FoodTruckApp {
 
 				System.out.print("Food truck name: ");
 				foodTruckName = sc.nextLine();
+				if (foodTruckName.equalsIgnoreCase("quit")) {
+					activeVoter = false;
+					break;
+				}
 				truck.setFoodTruckName(foodTruckName);
 
 				System.out.print("Food type: ");
@@ -40,49 +44,42 @@ public class FoodTruckApp {
 				sc.nextLine();
 
 			}
-
-			System.out.println();
-			System.out.println("========== MENU =========");
-			System.out.println("|                       |");
-			System.out.println("|   1. List My Trucks   |");
-			System.out.println("|    2. Avrg. Rating    |");
-			System.out.println("|   3. Highest Rated    |");
-			System.out.println("|       4. Exit         |");
-			System.out.println("|                       |");
-			System.out.println("=========================");
-			System.out.println();
-			System.out.print("Enter the number for what you would like to do: ");
-
-			userInput = sc.nextInt();
-			boolean activeUser = true;
 			
+			boolean activeUser = true;
+
 			while (activeUser) {
 				
+				user.finalMenu();
+				userInput = sc.nextInt();
+
+
 				switch (userInput) {
 				case 1:
+					System.out.println("My trucks include: ");
 					user.getTrucks(myTrucks);
 					break;
-					
+
 				case 2:
-					user.getAverage(myTrucks);
+					System.out.println("Your trucks averafe rating is: " + user.getAverage(myTrucks));
 					break;
-					
+
 				case 3:
-					user.getHighest(myTrucks);
+					System.out.println("Your highest rated is: " + user.getHighest(myTrucks));
 					break;
-					
+
 				case 4:
 					System.out.println("Thank you for voting in the Food Truck Challenge!");
 					System.out.println("Good bye.");
 					activeUser = false;
+					activeVoter = false;
 				}
-				
+
 			}
 
-			sc.close();
-
 		}
+		
+		sc.close();
 
 	}
-	
+
 }
