@@ -51,9 +51,7 @@ public class TrucksWrapper {
 		for (int i = 0; i < trucks.length; i++) {
 			if (trucks[i] != null && trucks[i].getTruckRating() > temp) {
 				temp = trucks[i].getTruckRating();
-			}
-			if(trucks[i].getTruckRating() == temp) {
-				highest += ", " + trucks[i].getFoodTruckName();
+				highest = trucks[i].getFoodTruckName();
 			}
 
 		}
