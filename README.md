@@ -15,4 +15,4 @@ This program seemed daunting at first but once I got working it came together fa
 The largest area of improvement is planning and laying out my program ahead of time. It is obvious in the complexity jump from week one that I will not be able to just program off the user story moving forward. The five P's will have to be used... Proper, Planning, Prevents, Poor, Performance!
 
 ## Technologies Used
-Java, Markdown, Eclipse, git, github, unix shell
+Java, Markdown, Eclipse, Atom, Git, GitHub, Unix Shell
